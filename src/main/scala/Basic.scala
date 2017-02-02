@@ -1,7 +1,5 @@
 import akka.actor.ActorSystem
 import akka.http.scaladsl.Http
-import akka.http.scaladsl.model._
-import akka.http.scaladsl.server.Directives._
 import akka.stream.ActorMaterializer
 import scala.io.StdIn
 
@@ -21,13 +19,3 @@ object Webserver extends Service {
   }
 }
 
-trait Service {
-
-  val route =
-    path("basic") {
-      get {
-        complete(HttpEntity(ContentTypes.`text/html(UTF-8)`, "<h1>Basic impl of akka-http</h1>"))
-      }
-    }
-
-}
